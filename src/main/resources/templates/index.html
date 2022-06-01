@@ -6,16 +6,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link
 			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-			th:href="@{\css\bootstrap-5.1.3-dist\css\bootstrap.min.css}"
-			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+			href="../static/css/bootstrap-5.1.3-dist/css/bootstrap.min.css"
+			th:href="@{/css/bootstrap-5.1.3-dist/css/bootstrap.min.css}"
 			crossorigin="anonymous"
+			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 		/>
 
 		<script
-			src="https://code.jquery.com/jquery-3.6.0.min.js"
-			th:src="@{\js\jquery-3.6.0.min.js}"
-			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			src="../static/js/jquery-3.6.0.min.js"
+			th:src="@{/js/jquery-3.6.0.min.js}"
 			crossorigin="anonymous"
 		></script>
 
@@ -23,7 +22,7 @@
 
 		<title>Document</title>
 
-		<style>
+		<style th:remove="all">
 			.jumbotron {
 				background: url("https://d2vvqscadf4c1f.cloudfront.net/rGIBmJUAT46UuLPwXo3K_Fedora_Core_Ultimate2.jpg")
 					no-repeat center center;
@@ -94,9 +93,10 @@
 
 			img {
 				vertical-align: middle;
+				padding-left: 0.1rem;
 			}
 
-			img {
+			img .rounded-circle {
 				border: 0 none;
 			}
 
@@ -145,9 +145,9 @@
 		</style>
 	</head>
 	<body>
-		<div class="jumbotron">
+		<div class="jumbotron" th:background="@{./images/SpringCoreJumbotron.jpg}">
 			<div class="container">
-				<h1>Spring Framework Guru</h1>
+				<h1 class="display-5 fw-bold text-white">Spring Framework Guru</h1>
 				<p class="lead">Online Courses for Spring Framework</p>
 			</div>
 		</div>
@@ -163,11 +163,12 @@
 				<div class="col-md-4">
 					<div class="course-listing">
 						<div class="row">
-							<a href="product.html">
+							<a href="product.html" th:href="@{/product}">
 								<div class="col-lg-12">
 									<div class="course-box-image-container">
 										<img
 											role="presentation"
+											src="../static/images/SpringIntroThumb.png"
 											th:src="@{/images/SpringIntroThumb.png}"
 											class="course-box-image"
 										/>
@@ -184,7 +185,8 @@
 								<img
 									align="left"
 									alt="John Thompson"
-									th:src="@{/images/instructor_jt.jpg}"
+									src="../static/images/instructor_jt.jpg"
+									th:src="@{images/instructor_jt.jpg}"
 									class="rounded-circle"
 								/>
 								<div class="small course-author-name">John Thompson</div>
@@ -203,7 +205,8 @@
 									<div class="course-box-image-container">
 										<img
 											role="presentation"
-											src="//d6xfpzo6h49n1.cloudfront.net/xmIEDF_cDxZz4E2mLiV5N52_yPo=/fit-in/705x0/https://d2vvqscadf4c1f.cloudfront.net/YnsFJMclS5aYmtiAMSX0_ThumbSPRINcore.png"
+											src="../static/images/SpringCoreThumb.png"
+											th:src="@{/images/SpringCoreThumb.png}"
 											class="course-box-image"
 										/>
 									</div>
@@ -219,8 +222,9 @@
 								<img
 									align="left"
 									alt="John Thompson"
-									src="//d6xfpzo6h49n1.cloudfront.net/aIKHFbsYXBCe0wY0jwCIdITOB5k=/30x30/https://d2vvqscadf4c1f.cloudfront.net/uZC7XjnzTMyJJeq5hShi_IMG_2800square.jpg"
-									class="img-circle"
+									src="../static/images/instructor_jt.jpg"
+									th:src="@{images/instructor_jt.jpg}"
+									class="rounded-circle"
 								/>
 								<div class="small course-author-name">John Thompson</div>
 							</div>
@@ -238,7 +242,8 @@
 									<div class="course-box-image-container">
 										<img
 											role="presentation"
-											src="//d6xfpzo6h49n1.cloudfront.net/VcMKL8A-nGdHEgrHRy5bPuqFhtU=/fit-in/705x0/https://d2vvqscadf4c1f.cloudfront.net/fMahox0zTOW4gYkMMjmN_ThumbSPRINcoreAdv.png"
+											src="../static/images/SpringCoreAdvancedThumb.png"
+											th:src="@{/images/SpringCoreAdvancedThumb.png}"
 											class="course-box-image"
 										/>
 									</div>
@@ -254,8 +259,9 @@
 								<img
 									align="left"
 									alt="John Thompson"
-									src="//d6xfpzo6h49n1.cloudfront.net/aIKHFbsYXBCe0wY0jwCIdITOB5k=/30x30/https://d2vvqscadf4c1f.cloudfront.net/uZC7XjnzTMyJJeq5hShi_IMG_2800square.jpg"
-									class="img-circle"
+									src="../static/images/instructor_jt.jpg"
+									th:src="@{images/instructor_jt.jpg}"
+									class="rounded-circle"
 								/>
 								<div class="small course-author-name">John Thompson</div>
 							</div>
@@ -276,7 +282,8 @@
 									<div class="course-box-image-container">
 										<img
 											role="presentation"
-											src="//d6xfpzo6h49n1.cloudfront.net/XPW5zGBgneHuCKQx52cNcAwsuBQ=/fit-in/705x0/https://d2vvqscadf4c1f.cloudfront.net/wc9ORhpRQUataALq2ejc_ThumbSPRINcoreDevOps2.png"
+											src="../static/images/SpringCoreDevOpsThumb.png"
+											th:src="@{/images/SpringCoreDevOpsThumb.png}"
 											class="course-box-image"
 										/>
 									</div>
@@ -292,8 +299,9 @@
 								<img
 									align="left"
 									alt="John Thompson"
-									src="//d6xfpzo6h49n1.cloudfront.net/aIKHFbsYXBCe0wY0jwCIdITOB5k=/30x30/https://d2vvqscadf4c1f.cloudfront.net/uZC7XjnzTMyJJeq5hShi_IMG_2800square.jpg"
-									class="img-circle"
+									src="../static/images/instructor_jt.jpg"
+									th:src="@{images/instructor_jt.jpg}"
+									class="rounded-circle"
 								/>
 								<div class="small course-author-name">John Thompson</div>
 							</div>
@@ -311,7 +319,8 @@
 									<div class="course-box-image-container">
 										<img
 											role="presentation"
-											src="//d6xfpzo6h49n1.cloudfront.net/iM6y2WkaU8PWBuGAHtA3OKqT-4A=/fit-in/705x0/https://d2vvqscadf4c1f.cloudfront.net/DkBQKd4WQxWTCLnFwJCR_ThumbSPRINcoreUltimate.png"
+											src="../static/images/SpringCoreUltimateThumb.png"
+											th:src="@{/images/SpringCoreUltimateThumb.png}"
 											class="course-box-image"
 										/>
 									</div>
@@ -340,7 +349,8 @@
 									<div class="course-box-image-container">
 										<img
 											role="presentation"
-											src="//d6xfpzo6h49n1.cloudfront.net/wH-V7RfYswB8Q95LIdGzx-QLxKk=/fit-in/705x0/https://d2vvqscadf4c1f.cloudfront.net/J8mqML4lQRmUmM4gdCW0_Thumb_Thymeleaf.png"
+											src="../static/images/ThymeleafThumb.png"
+											th:src="@{/images/ThymeleafThumb.png}"
 											class="course-box-image"
 										/>
 									</div>
@@ -356,8 +366,9 @@
 								<img
 									align="left"
 									alt="John Thompson"
-									src="//d6xfpzo6h49n1.cloudfront.net/aIKHFbsYXBCe0wY0jwCIdITOB5k=/30x30/https://d2vvqscadf4c1f.cloudfront.net/uZC7XjnzTMyJJeq5hShi_IMG_2800square.jpg"
-									class="img-circle"
+									src="../static/images/instructor_jt.jpg"
+									th:src="@{images/instructor_jt.jpg}"
+									class="rounded-circle"
 								/>
 								<div class="small course-author-name">John Thompson</div>
 							</div>
