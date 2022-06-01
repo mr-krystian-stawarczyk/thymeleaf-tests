@@ -2,7 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Spring Framework Guru - Course Name</title>
+		<title th:text="#{index.page.title}">
+			Spring Framework Guru - Course Name
+		</title>
 
 		<link
 			rel="stylesheet"
@@ -27,6 +29,8 @@
 				height: 350px;
 				color: white;
 				text-shadow: #444 0 1px 1px;
+				background-repeat: no-repeat;
+				background-size: cover;
 			}
 
 			body {
@@ -142,17 +146,25 @@
 		</style>
 	</head>
 	<body>
-		<div class="jumbotron">
+		<div
+			class="jumbotron"
+			th:background="@{./images/SpringCoreJumbotron.jpg}"
+			style="background-size: cover; background-repeat: no-repeat"
+		>
 			<div class="container">
 				<h1 class="display-5 fw-bold text-white">Spring Framework Guru</h1>
-				<p class="lead">Online Courses for Spring Framework</p>
+				<p class="lead" th:text="#{index.courses.tagline}">
+					Online Courses for Spring Framework
+				</p>
 			</div>
 		</div>
 
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>Spring Framework Guru - Course Name</h1>
+					<h1 th:text="#{index.courses.headline}">
+						Spring Framework Guru - Course Name
+					</h1>
 				</div>
 			</div>
 
@@ -177,7 +189,9 @@
 					</div>
 
 					<button type="button" class="btn btn-primary">
-						<a class="btn btn-primary">Buy now</a>
+						<a class="btn btn-primary" th:text="#{index.courses.button}"
+							>Buy now</a
+						>
 					</button>
 				</div>
 			</div>
