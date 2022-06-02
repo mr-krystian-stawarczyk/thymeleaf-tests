@@ -42,7 +42,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 th:text="#{index.courses.headline}">
+					<h1 th:text="${product.courseName}">
 						Spring Framework Guru - Course Name
 					</h1>
 				</div>
@@ -53,13 +53,13 @@
 					<img
 						src="../static/images/SpringIntroThumb.png"
 						class="center-block"
-						th:src="@{images/ThymeleafThumb.png}"
+						th:src="@{/images/ThymeleafThumb.png}"
 					/>
 				</div>
 				<div class="col-md-6">
 					<div>
-						<h2>Course Title</h2>
-						<p>
+						<h2 th:text="${product.courseSubtitle}">Course Title</h2>
+						<p th:text="${product.courseDescription}">
 							Parturient per donec porttitor congue class eros vestibulum
 							vulputate odio a vestibulum in donec lobortis ullamcorper mi nisi
 							parturient condimentum quisque venenatis est vivamus posuere
