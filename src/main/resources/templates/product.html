@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title th:text="#{index.page.title}">
 			Spring Framework Guru - Course Name
 		</title>
@@ -47,14 +48,15 @@
 					</h1>
 				</div>
 			</div>
+
 			<div class="row course-listing">
-				<div class="col-md-6">
+				<div class="col-md-6 col-sm-6">
 					<div class="row">
 						<div class="col-md-12">
 							<img
 								src="../static/images/SpringIntroThumb.png"
 								th:src="@{'/images/'+${product.imageUrl}}"
-								class="center-block"
+								class="img-fluid"
 							/>
 						</div>
 					</div>
@@ -69,7 +71,8 @@
 							/>
 							<div
 								class="small course-author-name"
-								th:text="${(product.author.firstName) + ' ' + (product.author.lastName)}"
+								th:text="${(product.author.firstName)
+																  + ' ' + (product.author.lastName)}"
 							>
 								Author Name
 							</div>
@@ -77,14 +80,34 @@
 						<div class="col-xs-4">
 							<div
 								class="small course-price"
-								th:text=" '$' +  ${product.price > 0 ? product.price : 'Free'}"
+								th:text="${product.price > 0 ? '$' + product.price : 'FREE'}"
 							>
 								$PRICE
 							</div>
 						</div>
 					</div>
+					<div class="row col-xs-12">
+						<ol class="breadcrumb" style="margin-left: 1rem">
+							<li
+								th:each="productCategory : ${product.productCategories}"
+								class="breadcrumb-item"
+							>
+								<a href="#" th:text="${productCategory.category}">Cat 1</a>
+							</li>
+							<li th:remove="all"><a href="#">Cat 2</a></li>
+							<li th:remove="all"><a href="#">Cat 3</a></li>
+						</ol>
+					</div>
+
+					<div class="row">
+						<div class="col-md-offset-6 col-md-4">
+							<button class="btn-success" th:text="#{index.courses.button}">
+								Buy Now!
+							</button>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 col-sm-6">
 					<div>
 						<h2 th:text="${product.courseSubtitle}">Course Title</h2>
 						<p th:text="${product.courseDescription}">
@@ -106,15 +129,7 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-md-offset-6 col-md-4">
-					<button class="btn-success" th:text="#{index.courses.button}">
-						Buy Now!
-					</button>
-				</div>
-			</div>
-
-			<div class="container" th:replace="fragments/footer :: footer">
+			<div class="row" th:replace="fragments/footer :: footer">
 				<p>footer</p>
 			</div>
 		</div>
